@@ -1,3 +1,6 @@
+**Version 1.21 - 2021/01/13**
+* 汉化部分界面
+
 **Version 1.21 - November 30, 2015**
 * Fixed atmospheric/vacuum thrust values for engine parts in 1.0.5.
 
