@@ -1,7 +1,36 @@
-<!doctype html>
-<html ng-app>
-<head>
-	<meta charset="UTF-8">
+<!DOCTYPE html>
+<!-- saved from url=(0032)http://korc.epizy.com/index.html -->
+<html ng-app="" class="ng-scope"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide{display:none !important;}ng\:form{display:block;}</style>
+
+	<link rel="stylesheet" href="./_h5ai/KORC/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	
+	
+	
+	<!-- Google Analytics -->
+
+<!-- <script type="text/javascript" async="" src="./_h5ai/KORC/analytics.js"></script><script async="" src="./_h5ai/KORC/analytics.js(1).下载"></script><script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','http://www.korc.epizy.com/analytics.js','ga');
+	
+	ga('create', 'UA-168910311-1', 'auto');
+	ga('send', 'pageview');
+	</script>
+	<!-- End Google Analytics -->
+    
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async="" src="./_h5ai/KORC/js"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-168910311-1');
+</script>
+
+
+	
 	<!--
 
 Copyright (c) 2013, Gary Court
@@ -29,7 +58,7 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 	-->
-	<title>KSP Optimal Rocket Calculator</title>
+	<title>坎巴拉火箭计算器</title>
 	<style type="text/css">
 
 .strong {
@@ -166,11 +195,11 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 }
 
 	</style>
-	<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
-	<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
-	<script src="kspcalc.js"></script>
+	<link rel="stylesheet" href="./_h5ai/KORC/bootstrap.min(1).css">
+	<link rel="stylesheet" href="./_h5ai/KORC/bootstrap-theme.min.css">
+	<script src="./_h5ai/KORC/underscore-min.js"></script>
+	<script src="./_h5ai/KORC/angular.min.js"></script>
+	<script src="./_h5ai/KORC/kspcalc.js"></script>
 	<script type="text/javascript">
 	
 function sortParts(parts, optimization) {
@@ -217,8 +246,8 @@ function SettingsController($scope) {
 	$scope.maxStacks = 4;
 	$scope.cluster = false;
 	$scope.parallel = false;
-	$scope.asparagus = false;
-	$scope.atmosphere = false;
+	$scope.asparagus = true;
+	$scope.atmosphere = true;
 	$scope.payloadDecoupler = true;
 	$scope.lastStageSingle = true;
 	$scope.tankDiametersEqual = true;
@@ -478,7 +507,7 @@ function SettingsController($scope) {
 			kspcalcWorkers = [];
 			//spawn 4 web workers
 			for (var x = 0, xl = 4; x < xl; ++x) {
-				kspcalcWorkers[x] = new Worker("kspcalc.js");
+				kspcalcWorkers[x] = new Worker("KORC/kspcalc.js");
 				kspcalcWorkers[x].addEventListener("message", function (evt) {
 					$scope.$apply(function () {
 						onSearchResult(evt.data);
@@ -504,7 +533,7 @@ function SettingsController($scope) {
 }
 
 	</script>
-	<datalist id="timeSuggestions">
+	<link type="text/css" rel="stylesheet" charset="UTF-8" href="./_h5ai/KORC/translateelement.css"></head><body><datalist id="timeSuggestions">
 		<option value="10">10 Seconds</option>
 		<option value="30">30 Seconds</option>
 		<option value="60">1 Minute</option>
@@ -516,135 +545,145 @@ function SettingsController($scope) {
 		<option value="900">15 Minutes</option>
 		<option value="1800">30 Minutes</option>
 	</datalist>
-</head>
-<body>
+
+
 	<div class="container">
 		<div class="page-header">
-			<h1>KSP Optimal Rocket Calculator <small>for Kerbal Space Program 1.2</small></h1>
+			<h1>坎箭计算器 <small>for Kerbal Space Program 1.91</small></h1>
 		</div>
 		
-		<div ng-controller="SettingsController">
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		  <a class="navbar-brand" href="http://10.135.48.88/ksp.html">KSP 计算器</a>
+		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		  </button>
+		  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+			<div class="navbar-nav">
+			  <a class="nav-item nav-link active" href="http://korc.epizy.com/index.html">Home <span class="sr-only">(current)</span></a>
+			  <a class="nav-item nav-link" href="./guide.html">使用指南</a>
+			  <a class="nav-item nav-link" href="http://korc.epizy.com/comments.html">Comments</a>
+			</div>
+		  </div>
+		</nav>
 		
-			<form name="settings" class="row">
+		<div ng-controller="SettingsController" class="ng-scope">
+		
+			<form name="settings" class="row ng-pristine ng-invalid ng-invalid-required">
 				<div class="col-md-6">
 					<div class="arguments form-horizontal">
 						<div class="form-group">
 							<label for="settingsOptimization" class="control-label col-sm-5">Optimize For</label>
 							<div class="col-sm-7">
-								<div ng-class="{'input-group': optimization == 'partCount'}">
-									<select name="optimization" id="settingsOptimization" class="form-control" ng-model="optimization" ng-change="onOptimizationChange()">
-										<option value="mass">Mass</option>
-										<option value="cost">Cost</option>
-										<option value="partCount">Part Count</option>
+								<div ng-class="{&#39;input-group&#39;: optimization == &#39;partCount&#39;}">
+									<select name="optimization" id="settingsOptimization" class="form-control ng-pristine ng-valid" ng-model="optimization" ng-change="onOptimizationChange()">
+										<option value="mass">质量</option>
+										<option value="cost">费用</option>
+										<option value="partCount">部件数</option>
 									</select>
-									<span class="input-group-addon" ng-if="NEEDS_OPTIMIZATION2[optimization]"> then </span>
-									<select name="optimization2" id="settingsOptimization2" class="form-control" ng-model="optimization2"  ng-if="NEEDS_OPTIMIZATION2[optimization]">
-										<option value="mass">Mass</option>
-										<option value="cost">Cost</option>
-										<option value="deltaV">Delta-V</option>
-									</select>
+									<!-- ngIf: NEEDS_OPTIMIZATION2[optimization] -->
+									<!-- ngIf: NEEDS_OPTIMIZATION2[optimization] -->
 								</div>
 							</div>
 						</div>
 						
 						<div class="form-group">
-							<label for="settingsPayload" class="control-label col-sm-5">Payload</label>
+							<label for="settingsPayload" class="control-label col-sm-5">有效负载</label>
 							<div class="col-sm-7">
-								<div class="input-group" ng-class="{'has-error': !payload}">
-									<input type="number" name="payload" required="required" min="0" step="0.001" placeholder="0" id="settingsPayload" class="form-control" ng-model="payload"/>
+								<div class="input-group has-error" ng-class="{&#39;has-error&#39;: !payload}">
+									<input type="number" name="payload" required="required" min="0" step="0.001" placeholder="0" id="settingsPayload" class="form-control ng-pristine ng-invalid ng-invalid-required ng-valid-number ng-valid-min" ng-model="payload">
 									<span class="input-group-addon mathml"><math><mi>t</mi></math></span>
 								</div>
 							</div>
 						</div>
 						
 						<div class="form-group">
-							<label for="settingsDeltaV" class="control-label col-sm-5">Minimum Total Delta-V</label>
+							<label for="settingsDeltaV" class="control-label col-sm-5">最低总Delta-V</label>
 							<div class="col-sm-7">
-								<div class="input-group" ng-class="{'has-error': !deltaV}">
-									<input type="number" name="deltaV" required="required" min="0" step="1" placeholder="0" id="settingsDeltaV" class="form-control" ng-model="deltaV"/>
+								<div class="input-group has-error" ng-class="{&#39;has-error&#39;: !deltaV}">
+									<input type="number" name="deltaV" required="required" min="0" step="1" placeholder="0" id="settingsDeltaV" class="form-control ng-pristine ng-invalid ng-invalid-required ng-valid-number ng-valid-min" ng-model="deltaV">
 									<span class="input-group-addon mathml"><math><mi>m</mi><mo>/</mo><mi>s</mi></math></span>
 								</div>
 							</div>
 						</div>
 						
 						<div class="form-group">
-							<label for="settingsPlanet" class="control-label col-sm-5">Local Gravity</label>
+							<label for="settingsPlanet" class="control-label col-sm-5">当地重力加速度</label>
 							<div class="col-sm-7">
 								<div class="input-group">
-									<span class="input-group-addon"><select name="planet" id="settingsPlanet" class="form-control-minimal" ng-model="planet" ng-options="PLANET as PLANET.name for PLANET in PLANETS" ng-change="onPlanetChange()"></select></span>
-									<input type="number" name="gravity" min="0" step="0.001" id="settingsGravity" class="form-control" ng-model="gravity" ng-change="onGravityChange()"/>
+									<span class="input-group-addon"><select name="planet" id="settingsPlanet" class="form-control-minimal ng-pristine ng-valid" ng-model="planet" ng-options="PLANET as PLANET.name for PLANET in PLANETS" ng-change="onPlanetChange()"><option value="0" selected="selected">None</option><option value="1">Moho</option><option value="2">Eve</option><option value="3">Gilly</option><option value="4">Kerbin</option><option value="5">Mun</option><option value="6">Minmus</option><option value="7">Duna</option><option value="8">Ike</option><option value="9">Dres</option><option value="10">Jool</option><option value="11">Laythe</option><option value="12">Vall</option><option value="13">Tylo</option><option value="14">Bop</option><option value="15">Pol</option><option value="16">Eeloo</option></select></span>
+									<input type="number" name="gravity" min="0" step="0.001" id="settingsGravity" class="form-control ng-pristine ng-valid ng-valid-number ng-valid-min" ng-model="gravity" ng-change="onGravityChange()">
 									<span class="input-group-addon mathml"><math><mi>m</mi><mo>/</mo><msup><mi>s</mi><mn>2</mn></msup></math></span>
 								</div>
 							</div>
 						</div>
 						
 						<div class="form-group">
-							<label for="settingsMinTWR" class="control-label col-sm-5">Initial Thrust-to-Weight Ratio</label>
+							<label for="settingsMinTWR" class="control-label col-sm-5">初始推重比</label>
 							<div class="col-sm-7">
 								<div class="input-group">
-									<input type="number" name="minTWR" min="0" step="0.1" placeholder="0" id="settingsMinTWR" class="form-control" ng-model="minTWR"/>
+									<input type="number" name="minTWR" min="0" step="0.1" placeholder="0" id="settingsMinTWR" class="form-control ng-pristine ng-valid ng-valid-number ng-valid-min" ng-model="minTWR">
 									<span class="input-group-addon"> to </span>
-									<input type="number" name="maxTWR" min="0" step="0.1" placeholder="Infinity" id="settingsMaxTWR" class="form-control" ng-model="maxTWR"/>
+									<input type="number" name="maxTWR" min="0" step="0.1" placeholder="Infinity" id="settingsMaxTWR" class="form-control ng-pristine ng-valid ng-valid-number ng-valid-min" ng-model="maxTWR">
 								</div>
 							</div>
 						</div>
 						
 						<div class="form-group">
-							<label for="settingsMaxTime" class="control-label col-sm-5">Stage Burn Time</label>
+							<label for="settingsMaxTime" class="control-label col-sm-5">分级燃烧总时间</label>
 							<div class="col-sm-7">
 								<div class="input-group">
-									<input type="number" name="minTime" min="0" step="0.1" placeholder="0" list="timeSuggestions" id="settingsMinTime" class="form-control" ng-model="minTime"/>
+									<input type="number" name="minTime" min="0" step="0.1" placeholder="0" list="timeSuggestions" id="settingsMinTime" class="form-control ng-pristine ng-valid ng-valid-number ng-valid-min" ng-model="minTime">
 									<span class="input-group-addon"> to </span>
-									<input type="number" name="maxTime" min="0" step="0.1" placeholder="Infinity" list="timeSuggestions" id="settingsMaxTime" class="form-control" ng-model="maxTime"/>
+									<input type="number" name="maxTime" min="0" step="0.1" placeholder="Infinity" list="timeSuggestions" id="settingsMaxTime" class="form-control ng-pristine ng-valid ng-valid-number ng-valid-min" ng-model="maxTime">
 									<span class="input-group-addon mathml"><math><mi>s</mi></math></span>
 								</div>
 							</div>
 						</div>
 						
-						<div class="form-group" ng-hide="optimization == 'mass'">
-							<label for="settingsMaxMass" class="control-label col-sm-5">Maximum Total Mass</label>
+						<div class="form-group ng-hide" ng-hide="optimization == &#39;mass&#39;">
+							<label for="settingsMaxMass" class="control-label col-sm-5">最大总质量</label>
 							<div class="col-sm-7">
 								<div class="input-group">
-									<input type="number" name="maxMass" min="{{payload}}" step="0.001" placeholder="Infinity" id="settingsMaxMass" class="form-control" ng-model="maxMass"/>
+									<input type="number" name="maxMass" min="" step="0.001" placeholder="Infinity" id="settingsMaxMass" class="form-control ng-pristine ng-valid ng-valid-number" ng-model="maxMass">
 									<span class="input-group-addon mathml"><math><mi>t</mi></math></span>
 								</div>
 							</div>
 						</div>
 						
-						<div class="form-group" ng-hide="optimization == 'partCount'">
-							<label for="settingsMaxPartCount" class="control-label col-sm-5">Maximum Total Part Count</label>
+						<div class="form-group" ng-hide="optimization == &#39;partCount&#39;">
+							<label for="settingsMaxPartCount" class="control-label col-sm-5">最大零件总数</label>
 							<div class="col-sm-7">
-								<input type="number" name="maxPartCount" min="1" step="1" placeholder="Infinity" id="settingsMaxPartCount" class="form-control" ng-model="maxPartCount"/>
+								<input type="number" name="maxPartCount" min="1" step="1" placeholder="Infinity" id="settingsMaxPartCount" class="form-control ng-pristine ng-valid ng-valid-number ng-valid-min" ng-model="maxPartCount">
 							</div>
 						</div>
 						
 						<div class="form-group">
-							<label for="settingsMaxStages" class="control-label col-sm-5">Maximum # of Stages</label>
+							<label for="settingsMaxStages" class="control-label col-sm-5">最大级数</label>
 							<div class="col-sm-7">
-								<input type="number" name="maxStages" min="1" step="1" placeholder="1" id="settingsMaxStages" class="form-control" ng-model="maxStages" ng-change="onMaxStagesChange()"/>
+								<input type="number" name="maxStages" min="1" step="1" placeholder="1" id="settingsMaxStages" class="form-control ng-pristine ng-valid ng-valid-number ng-valid-min" ng-model="maxStages" ng-change="onMaxStagesChange()">
 							</div>
 						</div>
 						
 						<div class="form-group">
-							<label for="settingsMaxStacks" class="control-label col-sm-5">Maximum # of Stacks</label>
+							<label for="settingsMaxStacks" class="control-label col-sm-5">最大堆叠</label>
 							<div class="col-sm-7">
-								<input type="number" name="maxStacks" min="1" step="1" max="50" placeholder="1" id="settingsMaxStacks" class="form-control" ng-model="maxStacks" ng-change="onMaxStacksChange()"/>
+								<input type="number" name="maxStacks" min="1" step="1" max="50" placeholder="1" id="settingsMaxStacks" class="form-control ng-pristine ng-valid ng-valid-number ng-valid-max ng-valid-min" ng-model="maxStacks" ng-change="onMaxStacksChange()">
 							</div>
 						</div>
 						
 						<div class="form-group">
-							<label class="control-label col-sm-5">Staging Setup</label>
+							<label class="control-label col-sm-5">分级设置</label>
 							<div class="col-sm-7">
 								<div class="checkbox">
 									<label>
-										<input type="checkbox" name="cluster" id="settingsCluster" ng-model="cluster" ng-disabled="maxStacks <= 1"/>
-										Engine clustering
+										<input type="checkbox" name="cluster" id="settingsCluster" ng-model="cluster" ng-disabled="maxStacks &lt;= 1" class="ng-pristine ng-valid">
+										引擎集群
 									</label>
 								</div>
 								<div class="checkbox">
 									<label>
-										<input type="checkbox" name="asparagus" id="settingsAsparagus" ng-model="asparagus" ng-disabled="maxStacks <= 1" ng-change="onAsparagusChange()"/>
-										Asparagus fuel routing
+										<input type="checkbox" name="asparagus" id="settingsAsparagus" ng-model="asparagus" ng-disabled="maxStacks &lt;= 1" ng-change="onAsparagusChange()" class="ng-pristine ng-valid">
+										环形供油
 										<a href="http://wiki.kerbalspaceprogram.com/wiki/Asparagus_staging" target="_blank" class="help">?</a>
 									</label>
 								</div>
@@ -652,54 +691,54 @@ function SettingsController($scope) {
 						</div>
 						
 						<div class="form-group">
-							<label class="control-label col-sm-5">Options</label>
+							<label class="control-label col-sm-5">选项</label>
 							<div class="col-sm-7">
 								<div class="checkbox">
 									<label>
-										<input type="checkbox" name="atmosphere" id="settingsAtmosphere" ng-model="atmosphere"/>
-										Use engine's atmospheric stats
+										<input type="checkbox" name="atmosphere" id="settingsAtmosphere" ng-model="atmosphere" class="ng-pristine ng-valid">
+										开启引擎的大气内数据
 									</label>
 								</div>
 								<div class="checkbox">
 									<label>
-										<input type="checkbox" name="payloadDecoupler" id="settingsPayloadDecoupler" ng-model="payloadDecoupler"/>
-										Add decoupler between payload
+										<input type="checkbox" name="payloadDecoupler" id="settingsPayloadDecoupler" ng-model="payloadDecoupler" class="ng-pristine ng-valid">
+										在有效负载之间添加分离器
 									</label>
 								</div>
 								<div class="checkbox">
 									<label>
-										<input type="checkbox" name="lastStageSingle" id="settingsLastStageSingle" ng-model="lastStageSingle"/>
-										Last stage must be a single stack
+										<input type="checkbox" name="lastStageSingle" id="settingsLastStageSingle" ng-model="lastStageSingle" class="ng-pristine ng-valid">
+										最后阶段必须单级
 									</label>
 								</div>
 								<div class="checkbox">
 									<label>
-										<input type="checkbox" name="tankDiametersEqual" id="settingsTankDiametersEqual" ng-model="tankDiametersEqual" ng-change="onTankDiametersEqualChange()"/>
-										All tanks & stack decouplers in a stage must be the same diameter
+										<input type="checkbox" name="tankDiametersEqual" id="settingsTankDiametersEqual" ng-model="tankDiametersEqual" ng-change="onTankDiametersEqualChange()" class="ng-pristine ng-valid">
+										单级的所有的油罐和分离器的直径必须相同
 									</label>
 									<div class="checkbox">
 										<label>
-											<input type="checkbox" name="tankDiametersEqualEngineDiameter" id="settingsTankDiametersEqualEngineDiameter" ng-model="tankDiametersEqualEngineDiameter" ng-disabled="!tankDiametersEqual"/>
-											<span class="ellipsis">...</span> as the engines
+											<input type="checkbox" name="tankDiametersEqualEngineDiameter" id="settingsTankDiametersEqualEngineDiameter" ng-model="tankDiametersEqualEngineDiameter" ng-disabled="!tankDiametersEqual" class="ng-pristine ng-valid">
+											<span class="ellipsis">...</span> 作为引擎
 										</label>
 										<div class="checkbox">
 											<label>
-												<input type="checkbox" name="tankDiametersGreaterThenEngineDiameter" id="settingsTankDiametersGreaterThenEngineDiameter" ng-model="tankDiametersGreaterThenEngineDiameter" ng-disabled="!tankDiametersEqual || !tankDiametersEqualEngineDiameter"/>
-												<span class="ellipsis">...</span> or larger
+												<input type="checkbox" name="tankDiametersGreaterThenEngineDiameter" id="settingsTankDiametersGreaterThenEngineDiameter" ng-model="tankDiametersGreaterThenEngineDiameter" ng-disabled="!tankDiametersEqual || !tankDiametersEqualEngineDiameter" class="ng-pristine ng-valid">
+												<span class="ellipsis">...</span> 或更大
 											</label>
 										</div>
 									</div>
 								</div>
 								<div class="checkbox">
 									<label>
-										<input type="checkbox" name="gimbal" id="settingsGimbal" ng-model="gimbal"/>
-										Each stage must have a gimbaling engine
+										<input type="checkbox" name="gimbal" id="settingsGimbal" ng-model="gimbal" class="ng-pristine ng-valid">
+										每个阶段必须有一个可转向引擎
 									</label>
 								</div>
 								<div class="checkbox">
 									<label>
-										<input type="checkbox" name="throttleable" id="settingsThrottleable" ng-model="throttleable"/>
-										Last stage must have a throttleable engine
+										<input type="checkbox" name="throttleable" id="settingsThrottleable" ng-model="throttleable" class="ng-pristine ng-valid">
+										最后阶段必须配备可节流的发动机
 									</label>
 								</div>
 							</div>
@@ -707,119 +746,254 @@ function SettingsController($scope) {
 						
 						<div class="actions row">
 							<div class="col-sm-offset-5 col-sm-7">
-								<button class="btn btn-primary" ng-disabled="settings.$invalid" ng-click="search()">Search</button>
-								<p class="help-block warning" ng-if="!webworkersSupported">This browser does not support web workers, searching will be slow!</p>
+								<button class="btn btn-primary" ng-disabled="settings.$invalid" ng-click="search()" disabled="disabled">Search</button>
+								<!-- ngIf: !webworkersSupported -->
 							</div>
 						</div>
 					</div>
 				</div>
 				
 				<div class="col-md-6">
-					<label>Available Parts</label>
+					<label>可选部件</label>
 					<div class="availableParts partPacks partList well">
-						<div class="partPack partListItem checkbox" ng-repeat="pack in packTree">
-							<input type="checkbox" ng-model="pack.enabled" ng-change="onPartListItemChange(pack)"/><span class="packName">{{pack.name}}</span>
+						<!-- ngRepeat: pack in packTree --><div class="partPack partListItem checkbox ng-scope" ng-repeat="pack in packTree">
+							<input type="checkbox" ng-model="pack.enabled" ng-change="onPartListItemChange(pack)" class="ng-pristine ng-valid"><span class="packName ng-binding">Stock 1.9</span>
 							<div class="partTypes partList">
-								<div class="partType partListItem" ng-repeat="type in pack.parts">
-									<input type="checkbox" ng-model="type.enabled" ng-change="onPartListItemChange(type, pack)"/><span>{{type.name}}</span>
+								<!-- ngRepeat: type in pack.parts --><div class="partType partListItem ng-scope" ng-repeat="type in pack.parts">
+									<input type="checkbox" ng-model="type.enabled" ng-change="onPartListItemChange(type, pack)" class="ng-pristine ng-valid"><span class="ng-binding">LF/O Engines</span>
 									<div class="partItems partList">
-										<div class="partItem partListItem" ng-repeat="part in type.parts">
-											<input type="checkbox" ng-model="part.enabled" ng-change="onPartListItemChange(part, type, pack)"/><span>{{part.name}}</span>
-										</div>
+										<!-- ngRepeat: part in type.parts --><div class="partItem partListItem ng-scope" ng-repeat="part in type.parts">
+											<input type="checkbox" ng-model="part.enabled" ng-change="onPartListItemChange(part, type, pack)" class="ng-pristine ng-valid"><span class="ng-binding">S3 KS-25x4 "Mammoth" Liquid Fuel Engine</span>
+										</div><!-- end ngRepeat: part in type.parts --><div class="partItem partListItem ng-scope" ng-repeat="part in type.parts">
+											<input type="checkbox" ng-model="part.enabled" ng-change="onPartListItemChange(part, type, pack)" class="ng-pristine ng-valid"><span class="ng-binding">Kerbodyne KR-2L+ "Rhino" Liquid Fuel Engine</span>
+										</div><!-- end ngRepeat: part in type.parts --><div class="partItem partListItem ng-scope" ng-repeat="part in type.parts">
+											<input type="checkbox" ng-model="part.enabled" ng-change="onPartListItemChange(part, type, pack)" class="ng-pristine ng-valid"><span class="ng-binding">RE-M3 "Mainsail" Liquid Fuel Engine</span>
+										</div><!-- end ngRepeat: part in type.parts --><div class="partItem partListItem ng-scope" ng-repeat="part in type.parts">
+											<input type="checkbox" ng-model="part.enabled" ng-change="onPartListItemChange(part, type, pack)" class="ng-pristine ng-valid"><span class="ng-binding">RE-I5 "Skipper" Liquid Fuel Engine</span>
+										</div><!-- end ngRepeat: part in type.parts --><div class="partItem partListItem ng-scope" ng-repeat="part in type.parts">
+											<input type="checkbox" ng-model="part.enabled" ng-change="onPartListItemChange(part, type, pack)" class="ng-pristine ng-valid"><span class="ng-binding">RE-L10 "Poodle" Liquid Fuel Engine</span>
+										</div><!-- end ngRepeat: part in type.parts --><div class="partItem partListItem ng-scope" ng-repeat="part in type.parts">
+											<input type="checkbox" ng-model="part.enabled" ng-change="onPartListItemChange(part, type, pack)" class="ng-pristine ng-valid"><span class="ng-binding">S3 KS-25 "Vector" Liquid Fuel Engine</span>
+										</div><!-- end ngRepeat: part in type.parts --><div class="partItem partListItem ng-scope" ng-repeat="part in type.parts">
+											<input type="checkbox" ng-model="part.enabled" ng-change="onPartListItemChange(part, type, pack)" class="ng-pristine ng-valid"><span class="ng-binding">CR-7 R.A.P.I.E.R. Engine</span>
+										</div><!-- end ngRepeat: part in type.parts --><div class="partItem partListItem ng-scope" ng-repeat="part in type.parts">
+											<input type="checkbox" ng-model="part.enabled" ng-change="onPartListItemChange(part, type, pack)" class="ng-pristine ng-valid"><span class="ng-binding">LV-T45 "Swivel" Liquid Fuel Engine</span>
+										</div><!-- end ngRepeat: part in type.parts --><div class="partItem partListItem ng-scope" ng-repeat="part in type.parts">
+											<input type="checkbox" ng-model="part.enabled" ng-change="onPartListItemChange(part, type, pack)" class="ng-pristine ng-valid"><span class="ng-binding">LV-T30 "Reliant" Liquid Fuel Engine</span>
+										</div><!-- end ngRepeat: part in type.parts --><div class="partItem partListItem ng-scope" ng-repeat="part in type.parts">
+											<input type="checkbox" ng-model="part.enabled" ng-change="onPartListItemChange(part, type, pack)" class="ng-pristine ng-valid"><span class="ng-binding">T-1 Toroidal Aerospike "Dart" Liquid Fuel Engine</span>
+										</div><!-- end ngRepeat: part in type.parts --><div class="partItem partListItem ng-scope" ng-repeat="part in type.parts">
+											<input type="checkbox" ng-model="part.enabled" ng-change="onPartListItemChange(part, type, pack)" class="ng-pristine ng-valid"><span class="ng-binding">LV-909 "Terrier" Liquid Fuel Engine</span>
+										</div><!-- end ngRepeat: part in type.parts --><div class="partItem partListItem ng-scope" ng-repeat="part in type.parts">
+											<input type="checkbox" ng-model="part.enabled" ng-change="onPartListItemChange(part, type, pack)" class="ng-pristine ng-valid"><span class="ng-binding">48-7S "Spark" Liquid Fuel Engine</span>
+										</div><!-- end ngRepeat: part in type.parts --><div class="partItem partListItem ng-scope" ng-repeat="part in type.parts">
+											<input type="checkbox" ng-model="part.enabled" ng-change="onPartListItemChange(part, type, pack)" class="ng-pristine ng-valid"><span class="ng-binding">LV-1 "Ant" Liquid Fuel Engine</span>
+										</div><!-- end ngRepeat: part in type.parts --><div class="partItem partListItem ng-scope" ng-repeat="part in type.parts">
+											<input type="checkbox" ng-model="part.enabled" ng-change="onPartListItemChange(part, type, pack)" class="ng-pristine ng-valid"><span class="ng-binding">Mk-55 "Thud" Liquid Fuel Engine</span>
+										</div><!-- end ngRepeat: part in type.parts --><div class="partItem partListItem ng-scope" ng-repeat="part in type.parts">
+											<input type="checkbox" ng-model="part.enabled" ng-change="onPartListItemChange(part, type, pack)" class="ng-pristine ng-valid"><span class="ng-binding">24-77 "Twitch" Liquid Fuel Engine</span>
+										</div><!-- end ngRepeat: part in type.parts --><div class="partItem partListItem ng-scope" ng-repeat="part in type.parts">
+											<input type="checkbox" ng-model="part.enabled" ng-change="onPartListItemChange(part, type, pack)" class="ng-pristine ng-valid"><span class="ng-binding">LV-1R "Spider" Liquid Fuel Engine</span>
+										</div><!-- end ngRepeat: part in type.parts --><div class="partItem partListItem ng-scope" ng-repeat="part in type.parts">
+											<input type="checkbox" ng-model="part.enabled" ng-change="onPartListItemChange(part, type, pack)" class="ng-pristine ng-valid"><span class="ng-binding">LV-N "Nerv" Liquid Fuel Engine</span>
+										</div><!-- end ngRepeat: part in type.parts --><div class="partItem partListItem ng-scope" ng-repeat="part in type.parts">
+											<input type="checkbox" ng-model="part.enabled" ng-change="onPartListItemChange(part, type, pack)" class="ng-pristine ng-valid"><span class="ng-binding">Kerbodyne KE-1 "Mastodon" Liquid Fuel Engine</span>
+										</div><!-- end ngRepeat: part in type.parts --><div class="partItem partListItem ng-scope" ng-repeat="part in type.parts">
+											<input type="checkbox" ng-model="part.enabled" ng-change="onPartListItemChange(part, type, pack)" class="ng-pristine ng-valid"><span class="ng-binding">LV-T91 "Cheetah" Liquid Fuel Engine</span>
+										</div><!-- end ngRepeat: part in type.parts --><div class="partItem partListItem ng-scope" ng-repeat="part in type.parts">
+											<input type="checkbox" ng-model="part.enabled" ng-change="onPartListItemChange(part, type, pack)" class="ng-pristine ng-valid"><span class="ng-binding">LV-TX87 "Bobcat" Liquid Fuel Engine</span>
+										</div><!-- end ngRepeat: part in type.parts --><div class="partItem partListItem ng-scope" ng-repeat="part in type.parts">
+											<input type="checkbox" ng-model="part.enabled" ng-change="onPartListItemChange(part, type, pack)" class="ng-pristine ng-valid"><span class="ng-binding">RE-I2 "Skiff" Liquid Fuel Engine</span>
+										</div><!-- end ngRepeat: part in type.parts --><div class="partItem partListItem ng-scope" ng-repeat="part in type.parts">
+											<input type="checkbox" ng-model="part.enabled" ng-change="onPartListItemChange(part, type, pack)" class="ng-pristine ng-valid"><span class="ng-binding">RE-J10 "Wolfhound" Liquid Fuel Engine</span>
+										</div><!-- end ngRepeat: part in type.parts --><div class="partItem partListItem ng-scope" ng-repeat="part in type.parts">
+											<input type="checkbox" ng-model="part.enabled" ng-change="onPartListItemChange(part, type, pack)" class="ng-pristine ng-valid"><span class="ng-binding">RK-7 "Kodiak" Liquid Fuel Engine</span>
+										</div><!-- end ngRepeat: part in type.parts --><div class="partItem partListItem ng-scope" ng-repeat="part in type.parts">
+											<input type="checkbox" ng-model="part.enabled" ng-change="onPartListItemChange(part, type, pack)" class="ng-pristine ng-valid"><span class="ng-binding">LV-TX87 "BobcatThud" Liquid Fuel Engine</span>
+										</div><!-- end ngRepeat: part in type.parts -->
 									</div>
-								</div>
+								</div><!-- end ngRepeat: type in pack.parts --><div class="partType partListItem ng-scope" ng-repeat="type in pack.parts">
+									<input type="checkbox" ng-model="type.enabled" ng-change="onPartListItemChange(type, pack)" class="ng-pristine ng-valid"><span class="ng-binding">LF/O Tanks</span>
+									<div class="partItems partList">
+										<!-- ngRepeat: part in type.parts --><div class="partItem partListItem ng-scope" ng-repeat="part in type.parts">
+											<input type="checkbox" ng-model="part.enabled" ng-change="onPartListItemChange(part, type, pack)" class="ng-pristine ng-valid"><span class="ng-binding">Kerbodyne S3-14400 Tank</span>
+										</div><!-- end ngRepeat: part in type.parts --><div class="partItem partListItem ng-scope" ng-repeat="part in type.parts">
+											<input type="checkbox" ng-model="part.enabled" ng-change="onPartListItemChange(part, type, pack)" class="ng-pristine ng-valid"><span class="ng-binding">Kerbodyne S3-7200 Tank</span>
+										</div><!-- end ngRepeat: part in type.parts --><div class="partItem partListItem ng-scope" ng-repeat="part in type.parts">
+											<input type="checkbox" ng-model="part.enabled" ng-change="onPartListItemChange(part, type, pack)" class="ng-pristine ng-valid"><span class="ng-binding">Kerbodyne S3-3600 Tank</span>
+										</div><!-- end ngRepeat: part in type.parts --><div class="partItem partListItem ng-scope" ng-repeat="part in type.parts">
+											<input type="checkbox" ng-model="part.enabled" ng-change="onPartListItemChange(part, type, pack)" class="ng-pristine ng-valid"><span class="ng-binding">Rockomax Jumbo-64 Fuel Tank</span>
+										</div><!-- end ngRepeat: part in type.parts --><div class="partItem partListItem ng-scope" ng-repeat="part in type.parts">
+											<input type="checkbox" ng-model="part.enabled" ng-change="onPartListItemChange(part, type, pack)" class="ng-pristine ng-valid"><span class="ng-binding">Rockomax X200-32 Fuel Tank</span>
+										</div><!-- end ngRepeat: part in type.parts --><div class="partItem partListItem ng-scope" ng-repeat="part in type.parts">
+											<input type="checkbox" ng-model="part.enabled" ng-change="onPartListItemChange(part, type, pack)" class="ng-pristine ng-valid"><span class="ng-binding">Rockomax X200-16 Fuel Tank</span>
+										</div><!-- end ngRepeat: part in type.parts --><div class="partItem partListItem ng-scope" ng-repeat="part in type.parts">
+											<input type="checkbox" ng-model="part.enabled" ng-change="onPartListItemChange(part, type, pack)" class="ng-pristine ng-valid"><span class="ng-binding">Rockomax X200-8 Fuel Tank</span>
+										</div><!-- end ngRepeat: part in type.parts --><div class="partItem partListItem ng-scope" ng-repeat="part in type.parts">
+											<input type="checkbox" ng-model="part.enabled" ng-change="onPartListItemChange(part, type, pack)" class="ng-pristine ng-valid"><span class="ng-binding">FL-T800 Fuel Tank</span>
+										</div><!-- end ngRepeat: part in type.parts --><div class="partItem partListItem ng-scope" ng-repeat="part in type.parts">
+											<input type="checkbox" ng-model="part.enabled" ng-change="onPartListItemChange(part, type, pack)" class="ng-pristine ng-valid"><span class="ng-binding">FL-T400 Fuel Tank</span>
+										</div><!-- end ngRepeat: part in type.parts --><div class="partItem partListItem ng-scope" ng-repeat="part in type.parts">
+											<input type="checkbox" ng-model="part.enabled" ng-change="onPartListItemChange(part, type, pack)" class="ng-pristine ng-valid"><span class="ng-binding">FL-T200 Fuel Tank</span>
+										</div><!-- end ngRepeat: part in type.parts --><div class="partItem partListItem ng-scope" ng-repeat="part in type.parts">
+											<input type="checkbox" ng-model="part.enabled" ng-change="onPartListItemChange(part, type, pack)" class="ng-pristine ng-valid"><span class="ng-binding">FL-T100 Fuel Tank</span>
+										</div><!-- end ngRepeat: part in type.parts --><div class="partItem partListItem ng-scope" ng-repeat="part in type.parts">
+											<input type="checkbox" ng-model="part.enabled" ng-change="onPartListItemChange(part, type, pack)" class="ng-pristine ng-valid"><span class="ng-binding">ROUND-8 Toroidal Fuel Tank</span>
+										</div><!-- end ngRepeat: part in type.parts --><div class="partItem partListItem ng-scope" ng-repeat="part in type.parts">
+											<input type="checkbox" ng-model="part.enabled" ng-change="onPartListItemChange(part, type, pack)" class="ng-pristine ng-valid"><span class="ng-binding">Oscar-B Fuel Tank</span>
+										</div><!-- end ngRepeat: part in type.parts --><div class="partItem partListItem ng-scope" ng-repeat="part in type.parts">
+											<input type="checkbox" ng-model="part.enabled" ng-change="onPartListItemChange(part, type, pack)" class="ng-pristine ng-valid"><span class="ng-binding">FL-TX220 Fuel Tank</span>
+										</div><!-- end ngRepeat: part in type.parts --><div class="partItem partListItem ng-scope" ng-repeat="part in type.parts">
+											<input type="checkbox" ng-model="part.enabled" ng-change="onPartListItemChange(part, type, pack)" class="ng-pristine ng-valid"><span class="ng-binding">FL-TX440 Fuel Tank</span>
+										</div><!-- end ngRepeat: part in type.parts --><div class="partItem partListItem ng-scope" ng-repeat="part in type.parts">
+											<input type="checkbox" ng-model="part.enabled" ng-change="onPartListItemChange(part, type, pack)" class="ng-pristine ng-valid"><span class="ng-binding">FL-TX900 Fuel Tank</span>
+										</div><!-- end ngRepeat: part in type.parts --><div class="partItem partListItem ng-scope" ng-repeat="part in type.parts">
+											<input type="checkbox" ng-model="part.enabled" ng-change="onPartListItemChange(part, type, pack)" class="ng-pristine ng-valid"><span class="ng-binding">FL-TX1800 Fuel Tank</span>
+										</div><!-- end ngRepeat: part in type.parts --><div class="partItem partListItem ng-scope" ng-repeat="part in type.parts">
+											<input type="checkbox" ng-model="part.enabled" ng-change="onPartListItemChange(part, type, pack)" class="ng-pristine ng-valid"><span class="ng-binding">Kerbodyne S4-64 Tank</span>
+										</div><!-- end ngRepeat: part in type.parts --><div class="partItem partListItem ng-scope" ng-repeat="part in type.parts">
+											<input type="checkbox" ng-model="part.enabled" ng-change="onPartListItemChange(part, type, pack)" class="ng-pristine ng-valid"><span class="ng-binding">Kerbodyne S4-128 Tank</span>
+										</div><!-- end ngRepeat: part in type.parts --><div class="partItem partListItem ng-scope" ng-repeat="part in type.parts">
+											<input type="checkbox" ng-model="part.enabled" ng-change="onPartListItemChange(part, type, pack)" class="ng-pristine ng-valid"><span class="ng-binding">Kerbodyne S4-256 Tank</span>
+										</div><!-- end ngRepeat: part in type.parts --><div class="partItem partListItem ng-scope" ng-repeat="part in type.parts">
+											<input type="checkbox" ng-model="part.enabled" ng-change="onPartListItemChange(part, type, pack)" class="ng-pristine ng-valid"><span class="ng-binding">Kerbodyne S4-512 Tank</span>
+										</div><!-- end ngRepeat: part in type.parts -->
+									</div>
+								</div><!-- end ngRepeat: type in pack.parts --><div class="partType partListItem ng-scope" ng-repeat="type in pack.parts">
+									<input type="checkbox" ng-model="type.enabled" ng-change="onPartListItemChange(type, pack)" class="ng-pristine ng-valid"><span class="ng-binding">Boosters</span>
+									<div class="partItems partList">
+										<!-- ngRepeat: part in type.parts --><div class="partItem partListItem ng-scope" ng-repeat="part in type.parts">
+											<input type="checkbox" ng-model="part.enabled" ng-change="onPartListItemChange(part, type, pack)" class="ng-pristine ng-valid"><span class="ng-binding">LFB KR-1x2 "Twin-Boar" Liquid Fuel Engine</span>
+										</div><!-- end ngRepeat: part in type.parts --><div class="partItem partListItem ng-scope" ng-repeat="part in type.parts">
+											<input type="checkbox" ng-model="part.enabled" ng-change="onPartListItemChange(part, type, pack)" class="ng-pristine ng-valid"><span class="ng-binding">S1 SRB-KD25k "Kickback" Solid Fuel Booster</span>
+										</div><!-- end ngRepeat: part in type.parts --><div class="partItem partListItem ng-scope" ng-repeat="part in type.parts">
+											<input type="checkbox" ng-model="part.enabled" ng-change="onPartListItemChange(part, type, pack)" class="ng-pristine ng-valid"><span class="ng-binding">BACC "Thumper" Solid Fuel Booster</span>
+										</div><!-- end ngRepeat: part in type.parts --><div class="partItem partListItem ng-scope" ng-repeat="part in type.parts">
+											<input type="checkbox" ng-model="part.enabled" ng-change="onPartListItemChange(part, type, pack)" class="ng-pristine ng-valid"><span class="ng-binding">RT-10 "Hammer" Solid Fuel Booster</span>
+										</div><!-- end ngRepeat: part in type.parts --><div class="partItem partListItem ng-scope" ng-repeat="part in type.parts">
+											<input type="checkbox" ng-model="part.enabled" ng-change="onPartListItemChange(part, type, pack)" class="ng-pristine ng-valid"><span class="ng-binding">RT-5 "Flea" Solid Fuel Booster</span>
+										</div><!-- end ngRepeat: part in type.parts --><div class="partItem partListItem ng-scope" ng-repeat="part in type.parts">
+											<input type="checkbox" ng-model="part.enabled" ng-change="onPartListItemChange(part, type, pack)" class="ng-pristine ng-valid"><span class="ng-binding">Sepratron I</span>
+										</div><!-- end ngRepeat: part in type.parts --><div class="partItem partListItem ng-scope" ng-repeat="part in type.parts">
+											<input type="checkbox" ng-model="part.enabled" ng-change="onPartListItemChange(part, type, pack)" class="ng-pristine ng-valid"><span class="ng-binding">F3S0 "Shrimp" Solid Fuel Booster</span>
+										</div><!-- end ngRepeat: part in type.parts --><div class="partItem partListItem ng-scope" ng-repeat="part in type.parts">
+											<input type="checkbox" ng-model="part.enabled" ng-change="onPartListItemChange(part, type, pack)" class="ng-pristine ng-valid"><span class="ng-binding">FM1 "Mite" Solid Fuel Booster</span>
+										</div><!-- end ngRepeat: part in type.parts --><div class="partItem partListItem ng-scope" ng-repeat="part in type.parts">
+											<input type="checkbox" ng-model="part.enabled" ng-change="onPartListItemChange(part, type, pack)" class="ng-pristine ng-valid"><span class="ng-binding">S2-17 "Thoroughbred" Solid Fuel Booster</span>
+										</div><!-- end ngRepeat: part in type.parts --><div class="partItem partListItem ng-scope" ng-repeat="part in type.parts">
+											<input type="checkbox" ng-model="part.enabled" ng-change="onPartListItemChange(part, type, pack)" class="ng-pristine ng-valid"><span class="ng-binding">S2-33 "Clydesdale" Solid Fuel Booster</span>
+										</div><!-- end ngRepeat: part in type.parts --><div class="partItem partListItem ng-scope" ng-repeat="part in type.parts">
+											<input type="checkbox" ng-model="part.enabled" ng-change="onPartListItemChange(part, type, pack)" class="ng-pristine ng-valid"><span class="ng-binding">THK "Pollux" Solid Fuel Booster</span>
+										</div><!-- end ngRepeat: part in type.parts -->
+									</div>
+								</div><!-- end ngRepeat: type in pack.parts --><div class="partType partListItem ng-scope" ng-repeat="type in pack.parts">
+									<input type="checkbox" ng-model="type.enabled" ng-change="onPartListItemChange(type, pack)" class="ng-pristine ng-valid"><span class="ng-binding">Decouplers</span>
+									<div class="partItems partList">
+										<!-- ngRepeat: part in type.parts --><div class="partItem partListItem ng-scope" ng-repeat="part in type.parts">
+											<input type="checkbox" ng-model="part.enabled" ng-change="onPartListItemChange(part, type, pack)" class="ng-pristine ng-valid"><span class="ng-binding">Heat Shield (3.75m)</span>
+										</div><!-- end ngRepeat: part in type.parts --><div class="partItem partListItem ng-scope" ng-repeat="part in type.parts">
+											<input type="checkbox" ng-model="part.enabled" ng-change="onPartListItemChange(part, type, pack)" class="ng-pristine ng-valid"><span class="ng-binding">TR-38-D</span>
+										</div><!-- end ngRepeat: part in type.parts --><div class="partItem partListItem ng-scope" ng-repeat="part in type.parts">
+											<input type="checkbox" ng-model="part.enabled" ng-change="onPartListItemChange(part, type, pack)" class="ng-pristine ng-valid"><span class="ng-binding">Heat Shield (10m)</span>
+										</div><!-- end ngRepeat: part in type.parts --><div class="partItem partListItem ng-scope" ng-repeat="part in type.parts">
+											<input type="checkbox" ng-model="part.enabled" ng-change="onPartListItemChange(part, type, pack)" class="ng-pristine ng-valid"><span class="ng-binding">Heat Shield (2.5m)</span>
+										</div><!-- end ngRepeat: part in type.parts --><div class="partItem partListItem ng-scope" ng-repeat="part in type.parts">
+											<input type="checkbox" ng-model="part.enabled" ng-change="onPartListItemChange(part, type, pack)" class="ng-pristine ng-valid"><span class="ng-binding">TR-XL Stack Separator</span>
+										</div><!-- end ngRepeat: part in type.parts --><div class="partItem partListItem ng-scope" ng-repeat="part in type.parts">
+											<input type="checkbox" ng-model="part.enabled" ng-change="onPartListItemChange(part, type, pack)" class="ng-pristine ng-valid"><span class="ng-binding">Rockomax Brand Decoupler</span>
+										</div><!-- end ngRepeat: part in type.parts --><div class="partItem partListItem ng-scope" ng-repeat="part in type.parts">
+											<input type="checkbox" ng-model="part.enabled" ng-change="onPartListItemChange(part, type, pack)" class="ng-pristine ng-valid"><span class="ng-binding">Heat Shield (1.25m)</span>
+										</div><!-- end ngRepeat: part in type.parts --><div class="partItem partListItem ng-scope" ng-repeat="part in type.parts">
+											<input type="checkbox" ng-model="part.enabled" ng-change="onPartListItemChange(part, type, pack)" class="ng-pristine ng-valid"><span class="ng-binding">TR-18D Stack Separator</span>
+										</div><!-- end ngRepeat: part in type.parts --><div class="partItem partListItem ng-scope" ng-repeat="part in type.parts">
+											<input type="checkbox" ng-model="part.enabled" ng-change="onPartListItemChange(part, type, pack)" class="ng-pristine ng-valid"><span class="ng-binding">TR-18A Stack Decoupler</span>
+										</div><!-- end ngRepeat: part in type.parts --><div class="partItem partListItem ng-scope" ng-repeat="part in type.parts">
+											<input type="checkbox" ng-model="part.enabled" ng-change="onPartListItemChange(part, type, pack)" class="ng-pristine ng-valid"><span class="ng-binding">Heat Shield (0.625m)</span>
+										</div><!-- end ngRepeat: part in type.parts --><div class="partItem partListItem ng-scope" ng-repeat="part in type.parts">
+											<input type="checkbox" ng-model="part.enabled" ng-change="onPartListItemChange(part, type, pack)" class="ng-pristine ng-valid"><span class="ng-binding">TR-2C Stack Separator</span>
+										</div><!-- end ngRepeat: part in type.parts --><div class="partItem partListItem ng-scope" ng-repeat="part in type.parts">
+											<input type="checkbox" ng-model="part.enabled" ng-change="onPartListItemChange(part, type, pack)" class="ng-pristine ng-valid"><span class="ng-binding">TR-2V Stack Decoupler</span>
+										</div><!-- end ngRepeat: part in type.parts --><div class="partItem partListItem ng-scope" ng-repeat="part in type.parts">
+											<input type="checkbox" ng-model="part.enabled" ng-change="onPartListItemChange(part, type, pack)" class="ng-pristine ng-valid"><span class="ng-binding">Hydraulic Detachment Manifold</span>
+										</div><!-- end ngRepeat: part in type.parts --><div class="partItem partListItem ng-scope" ng-repeat="part in type.parts">
+											<input type="checkbox" ng-model="part.enabled" ng-change="onPartListItemChange(part, type, pack)" class="ng-pristine ng-valid"><span class="ng-binding">Structural Pylon</span>
+										</div><!-- end ngRepeat: part in type.parts --><div class="partItem partListItem ng-scope" ng-repeat="part in type.parts">
+											<input type="checkbox" ng-model="part.enabled" ng-change="onPartListItemChange(part, type, pack)" class="ng-pristine ng-valid"><span class="ng-binding">TT-70 Radial Decoupler</span>
+										</div><!-- end ngRepeat: part in type.parts --><div class="partItem partListItem ng-scope" ng-repeat="part in type.parts">
+											<input type="checkbox" ng-model="part.enabled" ng-change="onPartListItemChange(part, type, pack)" class="ng-pristine ng-valid"><span class="ng-binding">Small Hardpoint</span>
+										</div><!-- end ngRepeat: part in type.parts --><div class="partItem partListItem ng-scope" ng-repeat="part in type.parts">
+											<input type="checkbox" ng-model="part.enabled" ng-change="onPartListItemChange(part, type, pack)" class="ng-pristine ng-valid"><span class="ng-binding">TT-38K Radial Decoupler</span>
+										</div><!-- end ngRepeat: part in type.parts -->
+									</div>
+								</div><!-- end ngRepeat: type in pack.parts --><div class="partType partListItem ng-scope" ng-repeat="type in pack.parts">
+									<input type="checkbox" ng-model="type.enabled" ng-change="onPartListItemChange(type, pack)" class="ng-pristine ng-valid"><span class="ng-binding">Branches</span>
+									<div class="partItems partList">
+										<!-- ngRepeat: part in type.parts --><div class="partItem partListItem ng-scope" ng-repeat="part in type.parts">
+											<input type="checkbox" ng-model="part.enabled" ng-change="onPartListItemChange(part, type, pack)" class="ng-pristine ng-valid"><span class="ng-binding">TVR-400L Stack Quad-Adapter</span>
+										</div><!-- end ngRepeat: part in type.parts --><div class="partItem partListItem ng-scope" ng-repeat="part in type.parts">
+											<input type="checkbox" ng-model="part.enabled" ng-change="onPartListItemChange(part, type, pack)" class="ng-pristine ng-valid"><span class="ng-binding">TVR-300L Stack Tri-Adapter</span>
+										</div><!-- end ngRepeat: part in type.parts --><div class="partItem partListItem ng-scope" ng-repeat="part in type.parts">
+											<input type="checkbox" ng-model="part.enabled" ng-change="onPartListItemChange(part, type, pack)" class="ng-pristine ng-valid"><span class="ng-binding">TVR-200L Stack Bi-Adapter</span>
+										</div><!-- end ngRepeat: part in type.parts --><div class="partItem partListItem ng-scope" ng-repeat="part in type.parts">
+											<input type="checkbox" ng-model="part.enabled" ng-change="onPartListItemChange(part, type, pack)" class="ng-pristine ng-valid"><span class="ng-binding">TVR-200 Stack Bi-Coupler</span>
+										</div><!-- end ngRepeat: part in type.parts -->
+									</div>
+								</div><!-- end ngRepeat: type in pack.parts -->
 							</div>
-						</div>
+						</div><!-- end ngRepeat: pack in packTree -->
 					</div>
 				</div>
 			</form>
 			
+			
+			<!--
+
 			<div class="donate">
 				<div class="alert alert-warning">
 					<h4>Find this tool useful? Like to see it continually supported?</h4>
-					<p>
-						I am a self-employed software developer who built this tool in my free time. 
+					<p>The original creator of this tool - Gary Court:
+						
+						"I am a self-employed software developer who built this tool in my free time. 
 						Unfortunately, I can't work on stuff like this all the time as I have to make money to eat and live.
-						With your support, I can continue working on this and other great tools for Kerbal Space Program that everyone can benefit from!
+						With your support, I can continue working on this and other great tools for Kerbal Space Program that everyone can benefit from!"
 					</p>
 					<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
 						<input type="hidden" name="cmd" value="_s-xclick"/>
 						<input type="hidden" name="hosted_button_id" value="6E5RDXCCFK2KC"/>
 						<p class="donate-line">
-							Every little bit helps. So please, consider donating to my cause: 
+							Every little bit helps. So please, consider donating to his cause: 
 							<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" class="btn" border="0" name="submit" alt="Donate via PayPal" style="vertical-align:middle;"/>
 						</p>
 					</form>
 					<p>Thanks!</p>
 				</div>
 			</div>
+
+		-->
 		
-			<div class="searchProgress alert alert-info text-center" ng-show="bestStagingsArgs">
-				<h2 ng-if="bestStagingsArgs.maxStages > 1">Found {{bestStagingsValid}} Valid Rocket Designs<small ng-if="bestStagingsInvalid"> (and {{bestStagingsCount}} Invalid)</small></h2>
-				<h2 ng-if="bestStagingsArgs.maxStages <= 1">Most Optimal Rocket Design Found!</h2>
+			<div class="searchProgress alert alert-info text-center ng-hide" ng-show="bestStagingsArgs">
+				<!-- ngIf: bestStagingsArgs.maxStages > 1 -->
+				<!-- ngIf: bestStagingsArgs.maxStages <= 1 -->
 				<div class="actions pull-right">
-					<button class="btn btn-danger" ng-click="stop()" ng-hide="!searching || bestStagingsArgs.maxStages <= 1">Stop</button>
+					<button class="btn btn-danger ng-hide" ng-click="stop()" ng-hide="!searching || bestStagingsArgs.maxStages &lt;= 1">Stop</button>
 				</div>
 			</div>
 			
 			<div class="searchResults">
-				<details class="panel panel-default" ng-repeat="staging in bestStagings" ng-open="$first">
-					<summary class="panel-heading">
-						<div class="attempt panel-heading-pill">Attempt #{{staging.attempt}}</div>
-						<div class="stages panel-heading-pill nav-pills">Stages: {{staging.stages.length-1}}</div>
-						<div class="partCount panel-heading-pill nav-pills" ng-class="{strong: staging.optimization == 'partCount'}">Part Count: {{staging.partCount}}</div>
-						<div class="cost panel-heading-pill nav-pills" ng-class="{strong: staging.optimization == 'cost'}">Cost: {{staging.cost}}</div>
-						<div class="mass panel-heading-pill nav-pills" ng-class="{strong: staging.optimization == 'mass'}">Mass: {{staging.mass.toFixed(3)}} <abbr title="Payload Fraction">({{(staging.payloadFraction * 100).toPrecision(3)}}%)</abbr></div>
-						<div class="deltaV panel-heading-pill nav-pills">Delta-V: {{Math.round(staging.deltaV)}}</div>
-						<div class="time panel-heading-pill nav-pills">Time: {{staging.time.toFixed(1)}}</div>
-					</summary>
-					<table class="panel-table table">
-						<thead>
-							<tr>
-								<th class="stage">Stage</th>
-								<th class="parts">Part</th>
-								<th class="stageMultiplier">x</th>
-								<th class="cost">Cost</th>
-								<th class="mass">Mass (<math><mi>t</mi></math>)</th>
-								<th class="deltaV">Delta-V (<math><mi>m</mi><mo>/</mo><mi>s</mi></math>)</th>
-								<th class="twr">TWR</th>
-								<th class="time">Time (<math><mi>s</mi></math>)</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr ng-repeat="stage in staging.stages | orderBy:'-stage'">
-								<td class="stage">
-									<div class="stageNumber">{{$index}}</div>
-									<small ng-if="stage.asparagus">Asparagus</small>
-								</td>
-								<td class="parts partList">
-									<ol>
-										<li class="decouplers" ng-repeat="part in stage.decouplers">{{part.name}}<span class="multiplier" ng-if="part.count > 1"> x{{part.count}}</span></li>
-										<li class="payload" ng-if="stage.payload > 0">Payload: {{stage.payload}}t</li>
-										<li class="others" ng-repeat="part in stage.others">{{part.name}}<span class="multiplier" ng-if="part.count > 1"> x{{part.count}}</span></li>
-										<li class="lfoTanks" ng-repeat="part in stage.lfoTanks">{{part.name}}<span class="multiplier" ng-if="part.count > 1"> x{{part.count}}</span></li>
-										<li class="branches" ng-repeat="part in stage.branches">{{part.name}}<span class="multiplier" ng-if="part.count > 1"> x{{part.count}}</span></li>
-										<li class="lfoEngines" ng-repeat="part in stage.lfoEngines">{{part.name}}<span class="multiplier" ng-if="part.count > 1"> x{{part.count}}</span></li>
-										<li class="boosters" ng-repeat="part in stage.boosters">{{part.name}}<span class="multiplier" ng-if="part.count > 1"> x{{part.count}}</span></li>
-									</ol>
-								</td>
-								<td class="stageMultiplier"><span ng-if="stage.multiplier > 1">x{{stage.multiplier}}</span></td>
-								<td class="cost">{{stage.costStage}} / {{stage.costTotal}}</td>
-								<td class="mass">{{stage.massStage.toFixed(3)}} / {{stage.massTotal.toFixed(3)}}</td>
-								<td class="deltaV">{{Math.round(stage.deltaVStage)}} / {{Math.round(stage.deltaVTotal)}}</td>
-								<td class="twr">{{stage.twr.toFixed(2)}}</td>
-								<td class="time">{{stage.timeStage.toFixed(1)}} / {{stage.timeTotal.toFixed(1)}}</td>
-							</tr>
-						</tbody>
-					</table>
-				</details>
+				<!-- ngRepeat: staging in bestStagings -->
 			</div>
 			
 		</div>
 		
 		<div class="page-footer">
-			<p class="text-center">&copy; 2013 Gary Court - All rights reserved - Licensed under the <a href="LICENSE">BSD License</a> - <a href="CHANGELOG.md">Changelog</a></p>
+			<p class="text-center">© 2013 Gary Court - All rights reserved - Licensed under the <a href="http://korc.epizy.com/LICENSE">BSD License</a> - <a href="http://korc.epizy.com/CHANGELOG.md">Changelog</a></p>
 		</div>
 	</div>
-</body>
-</html>
+	
+	<script src="./_h5ai/KORC/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="./_h5ai/KORC/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="./_h5ai/KORC/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script><div id="goog-gt-tt" class="skiptranslate" dir="ltr"><div style="padding: 8px;"><div><div class="logo"><img src="./_h5ai/KORC/translate_24dp.png" width="20" height="20" alt="Google 翻译"></div></div></div><div class="top" style="padding: 8px; float: left; width: 100%;"><h1 class="title gray">原文</h1></div><div class="middle" style="padding: 8px;"><div class="original-text"></div></div><div class="bottom" style="padding: 8px;"><div class="activity-links"><span class="activity-link">提供更好的翻译建议</span><span class="activity-link"></span></div><div class="started-activity-container"><hr style="color: #CCC; background-color: #CCC; height: 1px; border: none;"><div class="activity-root"></div></div></div><div class="status-message" style="display: none;"></div></div>
+
+
+
+<div class="goog-te-spinner-pos"><div class="goog-te-spinner-animation"><svg xmlns="http://www.w3.org/2000/svg" class="goog-te-spinner" width="96px" height="96px" viewBox="0 0 66 66"><circle class="goog-te-spinner-path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle></svg></div></div></body></html>
